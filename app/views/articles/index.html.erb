@@ -1,30 +1,28 @@
-<header class="bg-gray-800 text-white py-4 rounded-lg">
-  <div class="container mx-auto flex justify-around items-center">
-    <h1 class="text-3xl font-bold">ギリギリ限界チキンハートのギリギリ日記</h1>
-    <nav>
-      <ul class="flex space-x-6">
-        <li><%= link_to '記事の作成', new_article_path, class: "text-lg" %></li>
-        <li><%= link_to '記事一覧', articles_path, class: "text-lg" %></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+<% provide :title, '記事一覧' %>
+
 
 <main class="container mx-auto py-8">
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
     <!-- 記事カード -->
     <% @articles.each do |article| %>
       <article class="bg-white p-6 rounded-lg shadow-lg">
-        <%= image_tag '12322_color.png', class:"w-full h-48 object-contain runded-lg mb-4"%>
-        
-        <h2 class="text-2xl font-semibold mb-2"><%= article.title %></h2>
-        <p class="text-gray-600 mb-4"><%= article.body %></p>
-        <p class="text-sm text-gray-500"><%= article.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+        <%= link_to article_path(article), class: "block hover:opacity-80" do %>
+          <%= image_tag '12322_color.png', class:"w-full h-48 object-contain runded-lg mb-4"%>
+          
+          <h2 class="text-2xl font-semibold mb-2"><%= article.title %></h2>
+          <p class="text-gray-600 mb-4"><%= article.body %></p>
+          <div class="flex items-center justify-between">
+            <p class="text-sm text-gray-500"><%= article.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+            <div class="flex justify-center space-x-4 items-center">
+              <%= link_to '編集', edit_article_path(article), class: "bg-blue-500 text-white p-2 rounded-lg" %>
+              <%= link_to '削除', article_path(article), data: { turbo_method: :delete, turbo_confirm: "記事を削除しますか？"},class: "bg-red-500 text-white p-2 rounded-lg" %>
+            </div>
+            
+          </div>
+        <% end %>
       </article>
     <% end %>
 
-
-    <!-- 他の記事カードも同様に追加 -->
 
   </div>
 
@@ -39,8 +37,4 @@
   </div>
 </main>
 
-<footer class="bg-gray-800 text-white py-4 mt-8 rounded-lg">
-  <div class="container mx-auto text-center">
-    <p>© 2025 ギリギリ限界チキンハートのギリギリ日記</p>
-  </div>
-</footer>
+

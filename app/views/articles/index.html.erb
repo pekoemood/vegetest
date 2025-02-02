@@ -7,8 +7,11 @@
     <% @articles.each do |article| %>
       <article class="bg-white p-6 rounded-lg shadow-lg">
         <%= link_to article_path(article), class: "block hover:opacity-80" do %>
-          <%= image_tag '12322_color.png', class:"w-full h-48 object-contain runded-lg mb-4"%>
-          
+          <% if article.image.attached? %>
+            <%= image_tag article.image.representation(resize_to_fit: [400, 400]), class:"w-full h-48 object-contain rounded-lg mb-4" %>
+          <% else %>
+            <%= image_tag '12322_color.png', class: "w-full h-48 object-contain rounded-lg mb-4" %>
+          <% end %>
           <h2 class="text-2xl font-semibold mb-2"><%= article.title %></h2>
           <p class="text-gray-600 mb-4"><%= article.body %></p>
           <div class="flex items-center justify-between">

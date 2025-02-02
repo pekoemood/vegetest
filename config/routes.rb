@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   get "up" => "rails/health#show", as: :rails_health_check
 
   # Render dynamic PWA files from app/views/pwa/*
@@ -6,5 +7,6 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   resources :articles
+  root to: 'articles#index'
 
 end

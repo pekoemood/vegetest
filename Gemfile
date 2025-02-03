@@ -58,3 +58,4 @@ end
 
 gem "tailwindcss-rails", "= 4.0.0.rc5"
 gem "image_processing"
+gem "kaminari"

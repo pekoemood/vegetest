@@ -2,7 +2,16 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: %i[ show edit update destroy]
 
   def index
-    @articles = Article.all.order(created_at: :desc)
+    @articles = Article.all.order(created_at: :desc).page(params[:page])
+
+
+    # per_page = 6
+    # page = params[:page].to_i > 0 ? params[:page].to_i : 1
+    # offset = (page -1) * per_page
+
+    # @articles = Article.all.order(created_at: :desc).limit(per_page).offset(offset)
+    # @total_pages = (Article.count.to_f / per_page).ceil
+    # @current_page = page
   end
 
   def show

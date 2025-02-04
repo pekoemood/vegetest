@@ -24,8 +24,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to articles_path
+      redirect_to articles_path, notice: '記事の作成に成功しました'
     else 
+      flash.now[:alert] = '記事の作成に失敗しました'
       render :new, status:  :unprocessable_entity
     end
   end
@@ -35,8 +36,9 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to articles_path, notice: "記事の更新が成功しました"
+      redirect_to articles_path, notice: '記事の更新に成功しました'
     else
+      flash.now[:alert] = '記事の更新に失敗しました'
       render :edit, status: :unprocessable_entity
     end
   end
@@ -49,6 +51,11 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def get_json
+    @articles = Article.all
+    render json: @articles
+  end
+
 
   private
     def article_params
@@ -58,5 +65,4 @@ class ArticlesController < ApplicationController
     def set_article
       @article = Article.find(params[:id])
     end
-
 end

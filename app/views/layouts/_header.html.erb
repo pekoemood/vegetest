@@ -1,10 +1,16 @@
 <header class="bg-gray-800 text-white py-4 rounded-lg">
-  <div class="container mx-auto flex justify-around items-center">
+  <div class="container mx-auto flex justify-between items-center">
     <h1 class="text-3xl font-bold">ギリギリ限界チキンハートのギリギリ日記</h1>
     <nav>
-      <ul class="flex space-x-6">
-        <li><%= link_to '記事の作成', new_article_path, class: "text-lg" %></li>
-        <li><%= link_to '記事一覧', articles_path, class: "text-lg" %></li>
+      <ul class="flex space-x-6 pr-4">
+        <% if @current_user %>
+          <li><%= link_to '記事の作成', new_article_path, class: "text-lg" %></li>
+          <li><%= link_to '記事一覧', articles_path, class: "text-lg" %></li>
+          <li><%= link_to 'ログアウト', logout_path, class: 'text-lg' %></li>
+        <% else %>
+          <li><%= link_to 'ログイン', login_path, class: 'text-lg' %></li>
+          <li><%= link_to '新規登録', new_user_path, class: 'text-lg' %></li>
+        <% end %>
       </ul>
     </nav>
   </div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"
-  get 'logout', to: "sessions#destroy"
+  delete 'logout', to: "sessions#destroy"
 
   get "up" => "rails/health#show", as: :rails_health_check
 

@@ -9,8 +9,7 @@ class SessionsController < ApplicationController
 
     if user
       reset_session
-      session[:user_id] = user.id
-      
+      log_in(user)
       redirect_to params[:referer] || root_path, notice: 'ログイン成功'      
     else
       flash.now[:alert] = 'メールアドレスまたはパスワードが無効です'
@@ -19,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    reset_session
-    redirect_to login_path, notice: 'ログアウトしました'
+    log_out
+    redirect_to login_path, status: :see_other, notice: 'ログアウトしました'
   end
 end

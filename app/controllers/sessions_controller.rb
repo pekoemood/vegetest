@@ -9,6 +9,8 @@ class SessionsController < ApplicationController
 
     if user
       reset_session
+      params[:remember_me] == '1' ? remember(user) : forget(user)
+
       log_in(user)
       redirect_to params[:referer] || root_path, notice: 'ログイン成功'      
     else
@@ -18,7 +20,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to login_path, status: :see_other, notice: 'ログアウトしました'
   end
 end

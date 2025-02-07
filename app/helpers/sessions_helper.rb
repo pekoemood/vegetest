@@ -47,5 +47,10 @@ module SessionsHelper
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
   end
+
+  def correct_user
+    @user = User.find(params[:user_id])
+    redirect_to login_path unless @user == current_user
+  end
   
 end

@@ -1,0 +1,9 @@
+<article class="my-8 text-center">
+  <h1 class="text-4xl my-8">野菜価格</h1>
+
+  <% if @error_message %>
+    <p><%= @error_message %></p>
+  <% else %>
+    <p><%= @vege_price[:キャベツ][:愛知][:HighPrice] %></p>
+  <% end %>
+</article>

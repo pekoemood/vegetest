@@ -60,3 +60,5 @@ gem "tailwindcss-rails", "= 4.0.0.rc5"
 gem "image_processing"
 gem "kaminari"
 gem 'bcrypt'
+gem 'httparty'
+gem 'awesome_print'

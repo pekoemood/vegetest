@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'vege', to: "vege_prices#show"
+
+  get 'weather', to: 'weather#show'
 
   resources :users, only: %i[new create]
   

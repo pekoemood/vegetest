@@ -1,0 +1,2 @@
+module VegePricesHelper
+end

@@ -1,0 +1,22 @@
+<article class="w-1/2 mx-auto my-8 text-center">
+  <h1 class='text-4xl my-8'>天気情報</h1>
+
+  <% if @error_message %>
+    <p><%= @error_message %></p>
+  <% else %>
+    <p><%= @weather %></p>
+    <p class="my-8"><%= @weather[:weather] %></p>
+  <% end %>
+</article>
+
+<article class="my-8">
+  <%= @weather_1 %>%
+</article>
+
+<article class="my-8">
+  <%= pp @weather %>%
+</article>
+
+<article class="my-8">
+  <%= @weather[:weather][0][:description] %>
+</article>

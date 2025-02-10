@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'vege', to: "vege_prices#show"
+  get 'gemini', to: "gemini#show"
 
   get 'weather', to: 'weather#show'
 

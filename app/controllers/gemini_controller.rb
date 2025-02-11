@@ -1,6 +1,20 @@
 class GeminiController < ApplicationController
-  def show
-    client = Gemini.new('今日の沖縄の天候を簡単に教えてください')
-    @response = client.generate_content
+  def new
+    @html_content = nil
   end
+
+  def create
+    prompt = params[:prompt]
+    client = Gemini.new(prompt)
+    @html_content = client.generate_content
+
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @html_content = markdown.render(@html_content)
+
+    render :new
+  end
+
 end
+
+
+

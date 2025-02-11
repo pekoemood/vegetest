@@ -62,3 +62,4 @@ gem "kaminari"
 gem 'bcrypt'
 gem 'httparty'
 gem 'awesome_print'
+gem 'redcarpet'

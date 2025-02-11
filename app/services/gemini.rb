@@ -14,6 +14,11 @@ class Gemini
       query: {key: @api_key},
       headers: { 'Content-Type' => 'application/json'},
       body: { 
+        system_instruction: {
+          parts: {
+            text: 'あなたはプロの料理人です。料理の経験が浅いユーザーにもわかりやすい説明をすることで、有名です。以下の質問に答えてください'
+          }
+        },
         contents: [{
           parts: [{ text: @prompt }]
       }]}.to_json
@@ -23,7 +28,6 @@ class Gemini
 
     if response.code == 200
       formatted_response(response.parsed_response.deep_symbolize_keys)
-      #JSON.parse(response.body, symbolize_names: true)
     else
       { error: 'API request failed', status: response.code }
     end
@@ -34,5 +38,4 @@ class Gemini
   def formatted_response(response)
     response[:candidates][0][:content][:parts][0][:text]
   end
-
 end

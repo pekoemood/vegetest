@@ -1,1 +1,6 @@
-<p><%= @response %></p>
+<% if @html_content.is_a?(Hash) %>
+  <p class="text-red-500 text-4xl">Error: <%= @response[:error] %></p>
+  <>Status: <%= @response[:status] %> </p>
+<% else %>
+  <div class="w-full mx-auto"><%= sanitize(@html_content) %></div>
+<% end %>

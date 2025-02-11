@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'vege', to: "vege_prices#show"
-  get 'gemini', to: "gemini#show"
+  resources :gemini, only: %i(new create)
 
   get 'weather', to: 'weather#show'
 
-  resources :users, only: %i[new create]
+  resources :users, only: %i[new create index]
   
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"

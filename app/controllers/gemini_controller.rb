@@ -1,7 +1,5 @@
 class GeminiController < ApplicationController
-  def new
-    @html_content = nil
-  end
+  def new;end
 
   def create
     prompt = params[:prompt]
@@ -11,9 +9,8 @@ class GeminiController < ApplicationController
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @html_content = markdown.render(@html_content)
 
-    render :new
+    render :new, status: :unprocessable_entity
   end
-
 end
 
 

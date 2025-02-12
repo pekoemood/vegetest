@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'weather', to: 'weather#show'
 
-  resources :users, only: %i[new create index]
+  resources :users
   
   get 'login', to: "sessions#new"
   post 'login', to: "sessions#create"

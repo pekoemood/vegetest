@@ -1,4 +1,4 @@
-<%= form_with(url: gemini_index_path, method: :post, data: { turbo: false }) do |form| %>
+<%= form_with(url: gemini_index_path, method: :post) do |form| %>
   <div class="w-full flex items-center space-x-4 justify-right my-8">
     <%= form.label :prompt, "質問を入力", class: "font-bold text-xl" %>
     <%= form.text_field :prompt, class: 'border block w-96 p-2 rounded-lg align-center' %>

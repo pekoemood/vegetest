@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :check_logined
-  before_action :user_set
+  before_action :set_user, only: %i(show edit)
   def new
     @user = User.new
   end
@@ -18,7 +18,11 @@ class UsersController < ApplicationController
   end
 
   def show
-  
+
+  end
+
+  def edit
+    
   end
 
   private
@@ -26,7 +30,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:email, :name, :password, :password_confirmation)
   end
 
-  def user_set
+  def set_user
     @user = User.find(params[:id])
   end
 end

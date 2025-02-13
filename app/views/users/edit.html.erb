@@ -1,0 +1,17 @@
+<h1 class="max-w-xl mx-auto">プロフィール編集</h1>
+
+<%= form_with(model: @user) do |f| %>
+<section class="max-w-xl mx-auto">
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "w-full border" %>
+  </div>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "w-full border" %>
+  <div>
+
+  </div>
+</section>
+
+
+<% end %>

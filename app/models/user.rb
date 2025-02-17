@@ -4,7 +4,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :password, presence: true, length: { minimum: 3 }, allow_nil: true
   attr_accessor :remember_token
-  has_many: article
+  has_many :articles
+  has_many :comments
 
 
   def User.digest(string)

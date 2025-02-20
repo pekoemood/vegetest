@@ -17,9 +17,7 @@ Rails.application.routes.draw do
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
   resources :articles do
-    collection do
-      get :get_json
-    end
+    resources :comments, only: %i(create)
   end
   
   root to: 'articles#index'

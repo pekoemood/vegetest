@@ -16,6 +16,20 @@
     <%= @article.body %>
   </p>
 
+  <h2>コメント</h2>
+  <% @article.comments.each do |comment|%>
+    <p><%= comment.content %></p>
+  <% end %>
+
+  <%=  form_with model: [@article, @comment] do |f| %>
+    <p>
+      <%= f.text_area :content %>
+    </p>
+    <p>
+      <%= f.submit 'コメントを投稿' %>
+    </p>
+  <% end %>
+
   <div class="text-center mt-6">
     <%= link_to '一覧に戻る', articles_path, class: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition" %>
   </div>

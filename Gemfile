@@ -56,7 +56,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "tailwindcss-rails", "= 4.0.0.rc5"
+gem "tailwindcss-rails", "4.1.0"
 gem "image_processing"
 gem "kaminari"
 gem 'bcrypt'

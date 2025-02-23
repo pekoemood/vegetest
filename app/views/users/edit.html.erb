@@ -1,4 +1,4 @@
-<h1 class="max-w-xl mx-auto">プロフィール編集</h1>
+<h1 class="max-w-xl mx-auto text-2xl mt-4">プロフィール編集</h1>
 
 <% if @user.errors.any? %>
   <div class="bg-red-100 text-red-700 p-4">
@@ -11,7 +11,7 @@
 <% end %>
 
 <%= form_with(model: @user) do |f| %>
-<section class="max-w-xl mx-auto">
+<section class="max-w-xl mx-auto space-y-4">
   <div>
     <%= f.label :name %>
     <%= f.text_field :name, class: "w-full border" %>

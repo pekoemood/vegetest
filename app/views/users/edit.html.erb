@@ -13,22 +13,22 @@
 <%= form_with(model: @user) do |f| %>
 <section class="max-w-xl mx-auto space-y-4">
   <div>
-    <%= f.label :name %>
+    <%= f.label :name, '名前' %>
     <%= f.text_field :name, class: "w-full border" %>
   </div>
 
   <div>
-    <%= f.label :email %>
+    <%= f.label :email, 'メールアドレス' %>
     <%= f.email_field :email, class: "w-full border" %>
   </div>
 
   <div>
-    <%= f.label :password %>
+    <%= f.label :password, 'パスワード' %>
     <%= f.password_field :password, class: "w-full border" %>
   </div>
 
   <div>
-    <%= f.label :password_confirmation %>
+    <%= f.label :password_confirmation, 'パスワード再確認' %>
     <%= f.password_field :password_confirmation, class: "w-full border" %>
   </div>
 

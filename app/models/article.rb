@@ -7,4 +7,9 @@ class Article < ApplicationRecord
 
   validates :title, presence: true
   validates :body, presence: true
+
+
+  def liked_by?(user)
+    liked_users.exists?(user.id)
+  end
 end

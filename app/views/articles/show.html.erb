@@ -44,9 +44,9 @@
 </div>
   <div class="text-center mt-6">
     <% if @article.liked_by?(current_user) %>
-      <%= link_to 'Unlike', article_like_path(@article, current_user.likes.find_by(article: @article)), method: :delete %>
+      <%= link_to 'Unlike', article_like_path(@article, current_user.likes.find_by(article: @article)), data: { turbo_method: :delete } %>
     <% else %>
-      <%= link_to 'Like', article_likes_path(@article), method: :post %>
+      <%= link_to 'Like', article_likes_path(@article), data: { turbo_method: :post } %>
     <% end %>
   </div>
   <div class="text-center mt-6">
